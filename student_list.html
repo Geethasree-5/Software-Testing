@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:40px;
+        }
+
+        table{
+            width:60%;
+            border-collapse:collapse;
+        }
+
+        th,td{
+            border:1px solid #ccc;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#4CAF50;
+            color:white;
+            cursor:pointer;
+        }
+
+        tr:nth-child(even){
+            background:#f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Student List</h2>
+
+<table id="studentTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th onclick="sortTable()">Name ▲▼</th>
+            <th>Course</th>
+            <th>Marks</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>101</td>
+            <td>Rahul</td>
+            <td>CSE</td>
+            <td>88</td>
+        </tr>
+
+        <tr>
+            <td>102</td>
+            <td>Anita</td>
+            <td>ECE</td>
+            <td>91</td>
+        </tr>
+
+        <tr>
+            <td>103</td>
+            <td>Vijay</td>
+            <td>IT</td>
+            <td>76</td>
+        </tr>
+
+        <tr>
+            <td>104</td>
+            <td>Deepa</td>
+            <td>EEE</td>
+            <td>84</td>
+        </tr>
+
+        <tr>
+            <td>105</td>
+            <td>Kiran</td>
+            <td>CSE</td>
+            <td>95</td>
+        </tr>
+
+        <tr>
+            <td>106</td>
+            <td>Bhavya</td>
+            <td>MECH</td>
+            <td>82</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+let ascending = true;
+
+function sortTable() {
+
+    const table = document.getElementById("studentTable");
+    const tbody = table.tBodies[0];
+
+    let rows = Array.from(tbody.rows);
+
+    rows.sort(function(a,b){
+
+        let x = a.cells[1].innerText.toLowerCase();
+        let y = b.cells[1].innerText.toLowerCase();
+
+        if(ascending){
+            return x.localeCompare(y);
+        }else{
+            return y.localeCompare(x);
+        }
+
+    });
+
+    rows.forEach(row => tbody.appendChild(row));
+
+    ascending = !ascending;
+}
+</script>
+
+</body>
+</html>
