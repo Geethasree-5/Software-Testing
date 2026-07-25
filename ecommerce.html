@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>E-Commerce Demo</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:30px;
+}
+
+.product{
+border:1px solid gray;
+padding:15px;
+margin:10px;
+width:250px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Product List</h2>
+
+<div class="product">
+
+<h3>Laptop</h3>
+
+<p id="cat1">Electronics</p>
+
+<p id="price1">50000</p>
+
+<button onclick="addToCart('Laptop',50000)">
+Add to Cart
+</button>
+
+</div>
+
+<div class="product">
+
+<h3>Mobile</h3>
+
+<p id="cat2">Electronics</p>
+
+<p id="price2">25000</p>
+
+<button onclick="addToCart('Mobile',25000)">
+Add to Cart
+</button>
+
+</div>
+
+<div class="product">
+
+<h3>Shoes</h3>
+
+<p id="cat3">Fashion</p>
+
+<p id="price3">3000</p>
+
+<button onclick="addToCart('Shoes',3000)">
+Add to Cart
+</button>
+
+</div>
+
+<h2>Cart</h2>
+
+<p>Total Items :
+<span id="items">0</span>
+</p>
+
+<p>Total Price :
+₹<span id="total">0</span>
+</p>
+
+<script>
+
+let items=0;
+let total=0;
+
+function addToCart(name,price){
+
+items++;
+
+total+=price;
+
+document.getElementById("items").innerHTML=items;
+
+document.getElementById("total").innerHTML=total;
+
+}
+
+</script>
+
+</body>
+</html>
