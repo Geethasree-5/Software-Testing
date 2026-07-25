@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>File Upload Automation</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:40px;
+}
+
+button{
+padding:10px 20px;
+margin-top:20px;
+}
+
+#message{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Upload File</h2>
+
+<input type="file" id="fileUpload">
+
+<br><br>
+
+<button id="uploadButton" onclick="uploadFile()">
+Upload
+</button>
+
+<br><br>
+
+<a id="downloadLink" href="test_files/download.txt" download>
+Download File
+</a>
+
+<p id="message"></p>
+
+<script>
+
+function uploadFile(){
+
+let file=document.getElementById("fileUpload").files[0];
+
+let msg=document.getElementById("message");
+
+if(file==null){
+
+msg.style.color="red";
+msg.innerHTML="Please Select File";
+
+return;
+
+}
+
+let ext=file.name.split('.').pop().toLowerCase();
+
+if(ext=="pdf"){
+
+msg.style.color="green";
+msg.innerHTML="File Uploaded Successfully";
+
+}
+
+else{
+
+msg.style.color="red";
+msg.innerHTML="Unsupported File Format";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
