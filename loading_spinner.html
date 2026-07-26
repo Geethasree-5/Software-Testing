@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading Spinner Demo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        #spinner {
+            display: none;
+            font-size: 20px;
+            color: red;
+            margin-top: 20px;
+        }
+
+        #tableDiv {
+            display: none;
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        function loadData() {
+
+            document.getElementById("spinner").style.display = "block";
+            document.getElementById("tableDiv").style.display = "none";
+
+            setTimeout(function () {
+
+                document.getElementById("spinner").style.display = "none";
+                document.getElementById("tableDiv").style.display = "block";
+
+            }, 3000);
+        }
+    </script>
+
+</head>
+
+<body>
+
+<h2>Loading Spinner Example</h2>
+
+<button id="loadBtn" onclick="loadData()">Load Data</button>
+
+<div id="spinner">
+    ⏳ Loading...
+</div>
+
+<div id="tableDiv">
+
+    <table id="dataTable">
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+        </tr>
+
+        <tr>
+            <td>101</td>
+            <td>John</td>
+            <td>HR</td>
+        </tr>
+
+        <tr>
+            <td>102</td>
+            <td>Alice</td>
+            <td>IT</td>
+        </tr>
+
+        <tr>
+            <td>103</td>
+            <td>David</td>
+            <td>Finance</td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>
